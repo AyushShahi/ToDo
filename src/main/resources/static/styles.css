@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: hsl(250, 84%, 54%);
+    --primary-dark: hsl(250, 84%, 44%);
+    --success: hsl(142, 76%, 36%);
+    --danger: hsl(0, 84%, 60%);
+    --bg-main: hsl(240, 21%, 15%);
+    --bg-card: hsl(240, 17%, 20%);
+    --bg-input: hsl(240, 15%, 25%);
+    --text-primary: hsl(0, 0%, 95%);
+    --text-secondary: hsl(0, 0%, 70%);
+    --border: hsl(240, 10%, 30%);
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--bg-main) 0%, hsl(250, 21%, 18%) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.6s ease;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), hsl(280, 84%, 64%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.add-todo-section {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px var(--shadow);
+    animation: fadeInUp 0.6s ease;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-field, .textarea-field, .search-input {
+    background: var(--bg-input);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus, .textarea-field:focus, .search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px hsla(250, 84%, 54%, 0.1);
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), hsl(280, 84%, 54%));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsla(250, 84%, 54%, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.search-section {
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s ease 0.1s backwards;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    min-height: 100px;
+}
+
+.todo-item {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+    animation: slideIn 0.4s ease;
+}
+
+.todo-item:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    cursor: pointer;
+    accent-color: var(--success);
+    margin-top: 2px;
+}
+
+.todo-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.todo-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+
+.todo-item.completed .todo-title {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.todo-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon-only {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-input);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.btn-icon-only:hover {
+    background: var(--danger);
+    color: white;
+    transform: scale(1.1);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    animation: fadeInUp 0.6s ease 0.2s backwards;
+}
+
+.stats span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .add-todo-section {
+        padding: 1.5rem;
+    }
+    
+    .filter-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
